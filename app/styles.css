@@ -19,7 +19,6 @@ body {
 #map {
   height: 400px;
   width: 100%;
-  /* max-width: 400px; */
   border-radius: 7px;
   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
@@ -67,7 +66,7 @@ body {
   cursor: pointer;
   transition: transform 0.3s ease;
   flex: 0 0 auto; /* Prevent cards from growing */
-  margin-right: 20px; /* Add space between cards */
+  margin-right: 20px;
   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
@@ -89,7 +88,6 @@ body {
 
 .restaurant-details h2 {
   margin: 0;
-  /* overflow: hidden; */
   overflow-wrap: break;
   text-overflow: ellipsis;
 }
