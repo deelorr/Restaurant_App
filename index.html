@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Whats4Dinner</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Search for Restaurants</h1>
-  
-  <div id="map"></div>
-  
-  <form id="searchForm">
-    <input type="text" id="searchInput" placeholder="Enter location">
-    <button type="submit" id="searchButton">Search</button>
-  </form>
-  
-  <ul id="restaurantsList"></ul>
-  
-  <script src="main.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuYZy8IeZVnBRfvnZQhIl41Ydz5b_oTpk&callback=initMap&libraries=places" defer></script>
+
+    <div class="header-box">
+        <h1>Whats4Dinner</h1>
+    </div>
+
+    <div class="map-box">
+        <div id="map"></div>
+    </div>
+
+    <div id="form-box">
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Enter City, State">
+            <button type="submit" id="searchButton">Search</button>
+        </form>
+    </div>
+
+    <div id="restaurantBox"></div>
+
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuYZy8IeZVnBRfvnZQhIl41Ydz5b_oTpk&callback=initMap&libraries=places" defer></script>
 </body>
 </html>

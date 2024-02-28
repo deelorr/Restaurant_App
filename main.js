@@ -4,14 +4,14 @@ let service;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 0, lng: 0 },
-    zoom: 8,
+    center: { lat: 38.5, lng: -121.4 },
+    zoom: 7,
   });
   geocoder = new google.maps.Geocoder();
   service = new google.maps.places.PlacesService(map);
 
   document.getElementById("searchForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
     searchLocation();
   });
 }
@@ -22,15 +22,13 @@ function searchLocation() {
   geocoder.geocode({ address: address }, (results, status) => {
     if (status === "OK") {
       map.setCenter(results[0].geometry.location);
-      map.setZoom(15); // Zoom in for a closer view
-
-      // Clear previous markers
-      clearMarkers();
+      map.setZoom(15); // Autozoom for a closer view
+      clearMarkers(); // Clear previous markers
 
       // Search for restaurants nearby
       const request = {
         location: results[0].geometry.location,
-        radius: 1500, // in meters (adjust as needed)
+        radius: 20000, // in meters = 12.4 mile radius
         type: "restaurant"
       };
 
@@ -45,38 +43,36 @@ function searchLocation() {
       alert("Geocode was not successful for the following reason: " + status);
     }
   });
-
-  return false; // Prevent form submission
 }
 
 function displayRestaurants(results) {
-  const restaurantsList = document.getElementById("restaurantsList");
-  restaurantsList.innerHTML = "";
+  const restaurantsContainer = document.getElementById("restaurantBox");
+  restaurantsContainer.innerHTML = "";
 
   results.forEach(place => {
     const name = place.name;
     const rating = place.rating || "Not rated";
     const address = place.vicinity;
-    const icon = {
-      url: "car.png", // Path to car icon
-      scaledSize: new google.maps.Size(32, 32) // Size of the icon
-    };
+    const photo = place.photos ? place.photos[0].getUrl() : 'placeholder.png'; // Use placeholder if no photo available
 
-    const marker = new google.maps.Marker({
-      map: map,
-      position: place.geometry.location,
-      title: name,
-      icon: icon
+    const card = document.createElement("div");
+    card.classList.add("restaurant-card");
+    card.innerHTML = `
+      <img src="${photo}" alt="${name}" class="restaurant-img">
+      <div class="restaurant-details">
+        <h2>${name}</h2>
+        <p>${address}</p>
+        <p>Rating: ${rating}</p>
+      </div>
+    `;
+
+    card.addEventListener("click", function() {
+      map.setCenter(place.geometry.location);
+      map.setZoom(17);
     });
 
-    const li = document.createElement("li");
-    li.classList.add("restaurantItem");
-    li.innerHTML = `<strong>${name}</strong> - Rating: ${rating}<br>${address}`;
-    restaurantsList.appendChild(li);
+    restaurantBox.appendChild(card);
   });
 }
 
-function clearMarkers() {
-  // Implement this if needed in future
-  // For now, we are using PlacesService which handles markers internally
-}
+function clearMarkers() {} // Implement this if needed in the future, for now, we are using PlacesService which handles markers internally
