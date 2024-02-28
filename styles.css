@@ -1,3 +1,7 @@
+html {
+  background-color: rgba(195,10,44,255)
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -15,7 +19,9 @@ body {
 #map {
   height: 400px;
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
+  border-radius: 7px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
 #searchForm {
@@ -31,6 +37,8 @@ body {
   width: 200px;
   font-size: 16px;
   margin-right: 10px;
+  border-radius: 8px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;  border: none;
 }
 
 #searchButton {
@@ -38,6 +46,8 @@ body {
   font-size: 16px;
   cursor: pointer;
   margin-left: 10px;
+  border-radius: 8px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;  border: none;
 }
 
 #restaurantBox {
@@ -50,18 +60,19 @@ body {
 
 .restaurant-card {
   width: 200px;
-  height: 450px;
-  border: 1px solid #ccc;
+  height: 375px;
+  border: 1px solid #cccccc3b;
   border-radius: 8px;
   padding: 10px;
   cursor: pointer;
   transition: transform 0.3s ease;
   flex: 0 0 auto; /* Prevent cards from growing */
   margin-right: 20px; /* Add space between cards */
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
 .restaurant-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .restaurant-img {
@@ -97,6 +108,10 @@ body {
   text-align: center;
 }
 
-.header-box h1 {
-  margin: 0;
+.header-box img {
+  width: 200px;
+  height: 100px;
+  border-radius: 8px;
+  border: 1px solid #cccccc3b;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
